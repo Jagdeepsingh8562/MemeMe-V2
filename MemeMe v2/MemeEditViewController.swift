@@ -149,10 +149,16 @@ class MemeEditViewController: UIViewController , UITextFieldDelegate {
     
     
     @IBAction func cancelButton(_ sender: Any) {
-        shareButton.isEnabled = false
-        imageView.image = nil
-        topTextField.text = ""
-        bottomTextField.text = ""
+        
+        if imageView.image == nil {
+            self.dismiss(animated: true)
+        }
+        else {
+            shareButton.isEnabled = false
+            imageView.image = nil
+            topTextField.text = ""
+            bottomTextField.text = ""
+        }
         
     }
     
