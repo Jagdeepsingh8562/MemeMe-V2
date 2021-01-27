@@ -190,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O22-LV-9Wv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1098.5507246376812" y="-46.205357142857139"/>
+            <point key="canvasLocation" x="1029" y="-56"/>
         </scene>
         <!--Meme Edit View Controller-->
         <scene sceneID="tne-QT-ifu">

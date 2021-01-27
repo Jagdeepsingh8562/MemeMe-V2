@@ -29,6 +29,13 @@ class SentMemesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
     }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            memes.remove(at: indexPath.row)
+            appDelegate.memes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let memeVC = storyboard?.instantiateViewController(identifier: "MemeViewController") as! MemeDetailViewController
         memeVC.selectedImage = memes[indexPath.row].memedImage
