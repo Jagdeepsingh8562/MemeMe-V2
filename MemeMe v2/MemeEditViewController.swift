@@ -19,10 +19,6 @@ class MemeEditViewController: UIViewController , UITextFieldDelegate {
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var navbar: UINavigationBar!
     
-    let collectionViewController = SentMemesCollectionViewController()
-    let tableViewController = SentMemesTableViewController()
-    
-    
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
         .strokeColor: UIColor.black,
         .foregroundColor: UIColor.white,
@@ -42,12 +38,13 @@ class MemeEditViewController: UIViewController , UITextFieldDelegate {
         shareButton.isEnabled = false
         subscribeToKeyBoardNotifications()
         imageView.contentMode = UIView.ContentMode.scaleAspectFill
-              
       
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
           super.viewWillDisappear(true)
           unsubscribeToKeyboardNotifications()
+        
       }
     
     func setupTextField(_ textField: UITextField, text: String) {
@@ -141,12 +138,12 @@ class MemeEditViewController: UIViewController , UITextFieldDelegate {
             error: Error?) in
             if completed {
                 self.save()
-                
+                self.dismiss(animated: true)
             }
             
             self.dismiss(animated: true)
         }
-        present(vc, animated: true, completion: nil)
+        present(vc, animated: true)
     }
     //cancel button
     

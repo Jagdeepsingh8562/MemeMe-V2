@@ -7,17 +7,30 @@
 
 import UIKit
 
-class SentMemesTableViewController: UITableViewController  {
+class SentMemesTableViewController: UITableViewController {
     
     @IBOutlet weak var memesTableView: UITableView!
     
-  
+    @IBOutlet weak var navItem: UINavigationItem!
+   
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var memes = [Meme]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let navBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(adButtonPressed))
+//        navItem.rightBarButtonItem = navBarButton
     }
+    
+//    @objc private func adButtonPressed() {
+//        let memeVC = storyboard?.instantiateViewController(identifier: "MemeEditViewController") as! MemeEditViewController
+//        memeVC.modalPresentationStyle = .fullScreen
+//        present(memeVC, animated: true, completion: {
+//            self.memesTableView.reloadData()
+//        })
+        
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -30,10 +43,10 @@ class SentMemesTableViewController: UITableViewController  {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "tableCell")!
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "tableCell") as! TableViewCell
         let meme = memes[indexPath.row]
-        cell.imageView?.image = meme.memedImage
-        cell.textLabel?.text = "\(meme.topText)...\(meme.bottomText)"
+        cell.tableImageView?.image = meme.memedImage
+        cell.tableTextLabel?.text = "\(meme.topText)...\(meme.bottomText)"
         return cell
     }
     
