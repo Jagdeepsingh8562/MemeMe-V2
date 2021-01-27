@@ -19,7 +19,7 @@ class TabBarController: UITabBarController {
     
     @IBAction func addMemeAction(_ sender: Any) {
         let memeVC = storyboard?.instantiateViewController(identifier: "MemeEditViewController") as! MemeEditViewController
-        memeVC.modalPresentationStyle = .fullScreen//               present(memeVC, animated: true, completion: nil)
+        memeVC.modalPresentationStyle = .fullScreen
         present(memeVC, animated: true) 
             
         
